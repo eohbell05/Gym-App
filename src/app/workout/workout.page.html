@@ -26,7 +26,7 @@
       <div class="exercise-list">
         <div *ngFor="let exercise of exercises" class="exercise-card">
           <h3>{{ exercise.name }}</h3>
-          <p class="muscle-tag">{{ exercise.target || exercise.muscle }}</p>
+          <p class="muscle-tag">{{ exercise.category }}</p>
           <div class="sets-info">
             <span>3 Sets</span>
             <span>10-12 Reps</span>
@@ -35,9 +35,18 @@
         </div>
       </div>
 
-      <ion-button expand="block" class="back-btn" (click)="goBack()">
-        Start Over
-      </ion-button>
+      <div class="action-buttons">
+        <ion-button expand="block" class="save-btn" (click)="saveWorkout()" [disabled]="workoutSaved">
+          {{ workoutSaved ? 'Workout Saved ✓' : 'Save Workout' }}
+        </ion-button>
+        <ion-button expand="block" class="log-btn" (click)="goToLog()">
+          View Workout History
+        </ion-button>
+        <ion-button expand="block" class="back-btn" (click)="goBack()">
+          Start Over
+        </ion-button>
+      </div>
+
     </div>
 
   </div>

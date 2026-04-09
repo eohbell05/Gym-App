@@ -1,0 +1,99 @@
+.log-container {
+  padding: 24px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 12px;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a0a0a;
+  }
+
+  p {
+    color: #555;
+    font-size: 1rem;
+  }
+}
+
+.history-header {
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: #555;
+    font-size: 0.9rem;
+  }
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.history-card {
+  background: #f4f6fb;
+  border-radius: 16px;
+  padding: 20px;
+
+  .history-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .date {
+      font-size: 0.85rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    .goal-tag {
+      background: #1a3cff;
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+  }
+
+  .level {
+    color: #555;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .exercise-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .exercise-chip {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #0a0a0a;
+      text-transform: capitalize;
+    }
+  }
+}

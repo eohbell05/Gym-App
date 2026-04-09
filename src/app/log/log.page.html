@@ -1,13 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>log</ion-title>
+    <ion-title>Workout History</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">log</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="log-container">
+
+    <div *ngIf="workoutHistory.length === 0" class="empty-state">
+      <h2>No workouts saved yet</h2>
+      <p>Complete a workout and save it to see your history here.</p>
+      <ion-button (click)="goBack()">Go Back</ion-button>
+    </div>
+
+    <div *ngIf="workoutHistory.length > 0">
+      <div class="history-header">
+        <h2>Your Workout History</h2>
+        <p>{{ workoutHistory.length }} workout(s) saved</p>
+      </div>
+
+      <div class="history-list">
+        <div *ngFor="let workout of workoutHistory" class="history-card">
+          <div class="history-card-header">
+            <span class="date">{{ workout.date }}</span>
+            <span class="goal-tag">{{ workout.goal }}</span>
+          </div>
+          <p class="level">Level: {{ workout.fitnessLevel }}</p>
+          <div class="exercise-names">
+            <span *ngFor="let name of workout.exercises" class="exercise-chip">{{ name }}</span>
+          </div>
+        </div>
+      </div>
+
+      <ion-button expand="block" color="danger" (click)="clearHistory()">
+        Clear History
+      </ion-button>
+    </div>
+
+  </div>
 </ion-content>
