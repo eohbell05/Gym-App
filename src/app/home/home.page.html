@@ -1,20 +1,74 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="onboarding-container">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div *ngIf="currentStep === 0" class="step">
+      <h1>Welcome 👋</h1>
+      <p>Let's build your perfect workout plan. What's your name?</p>
+      <ion-input [(ngModel)]="name" placeholder="Enter your name" class="modern-input"></ion-input>
+      <button class="next-btn" (click)="nextStep()">Continue</button>
+    </div>
+
+    <div *ngIf="currentStep === 1" class="step">
+      <h1>What's your goal?</h1>
+      <div class="option-cards">
+        <div class="card" (click)="selectOption('goal', 'Lose Weight')">🔥 Lose Weight</div>
+        <div class="card" (click)="selectOption('goal', 'Build Muscle')">💪 Build Muscle</div>
+        <div class="card" (click)="selectOption('goal', 'Maintain Fitness')">⚖️ Maintain Fitness</div>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep === 2" class="step">
+      <h1>Fitness Level?</h1>
+      <div class="option-cards">
+        <div class="card" (click)="selectOption('fitnessLevel', 'Beginner')">🌱 Beginner</div>
+        <div class="card" (click)="selectOption('fitnessLevel', 'Intermediate')">⚡ Intermediate</div>
+        <div class="card" (click)="selectOption('fitnessLevel', 'Advanced')">🏆 Advanced</div>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep === 3" class="step">
+      <h1>What's your gender?</h1>
+      <div class="option-cards">
+        <div class="card" (click)="selectOption('gender', 'Male')">♂️ Male</div>
+        <div class="card" (click)="selectOption('gender', 'Female')">♀️ Female</div>
+        <div class="card" (click)="selectOption('gender', 'Prefer not to say')">🤐 Prefer not to say</div>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep === 4" class="step">
+      <h1>How old are you?</h1>
+      <ion-input [(ngModel)]="age" type="number" placeholder="Enter your age" class="modern-input"></ion-input>
+      <button class="next-btn" (click)="nextStep()">Continue</button>
+    </div>
+
+    <div *ngIf="currentStep === 5" class="step">
+      <h1>Your weight (kg)?</h1>
+      <ion-input [(ngModel)]="weight" type="number" placeholder="e.g. 75" class="modern-input"></ion-input>
+      <button class="next-btn" (click)="nextStep()">Continue</button>
+    </div>
+
+    <div *ngIf="currentStep === 6" class="step">
+      <h1>Your height (cm)?</h1>
+      <ion-input [(ngModel)]="height" type="number" placeholder="e.g. 175" class="modern-input"></ion-input>
+      <button class="next-btn" (click)="nextStep()">Continue</button>
+    </div>
+
+    <div *ngIf="currentStep === 7" class="step">
+      <h1>Days per week?</h1>
+      <div class="option-cards days-grid">
+        <div class="card" (click)="selectOption('daysPerWeek', '2')">2</div>
+        <div class="card" (click)="selectOption('daysPerWeek', '3')">3</div>
+        <div class="card" (click)="selectOption('daysPerWeek', '4')">4</div>
+        <div class="card" (click)="selectOption('daysPerWeek', '5')">5</div>
+        <div class="card" (click)="selectOption('daysPerWeek', '6')">6</div>
+      </div>
+    </div>
+
+    <div *ngIf="currentStep === 8" class="step">
+      <h1>You're all set, {{ name }}! 🎉</h1>
+      <p>We have everything we need to build your personalised plan.</p>
+      <button class="next-btn" (click)="goToWorkout()">Generate My Workout →</button>
+    </div>
+
   </div>
 </ion-content>
