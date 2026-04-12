@@ -4,6 +4,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonInput } from '@ionic/an
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserProfileService } from '../services/user-profile.service';
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
 
 @Component({
   selector: 'app-home',
@@ -26,10 +27,13 @@ export class HomePage {
 
   constructor(private router: Router, private userProfile: UserProfileService) {}
 
-  selectOption(field: string, value: string) {
-    (this as any)[field] = value;
-    this.currentStep++;
-  }
+async selectOption(field: string, value: string) {
+  (this as any)[field] = value;
+  try {
+    await Haptics.impact({ style: ImpactStyle.Light });
+  } catch (e) {}
+  this.currentStep++;
+}
 
   nextStep() {
     this.currentStep++;
