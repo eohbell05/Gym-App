@@ -48,9 +48,15 @@
     </div>
 
     <div *ngIf="currentStep === 6" class="step">
-      <h1>Your height (cm)?</h1>
-      <ion-input [(ngModel)]="height" type="number" placeholder="e.g. 175" class="modern-input"></ion-input>
-      <button class="next-btn" (click)="nextStep()">Continue</button>
+      <h1>Your height?</h1>
+      <div class="option-cards">
+        <div class="card" (click)="selectOption('height', 'Under 5\'0')">Under 5'0</div>
+        <div class="card" (click)="selectOption('height', '5\'0 - 5\'3')">5'0 - 5'3</div>
+        <div class="card" (click)="selectOption('height', '5\'4 - 5\'7')">5'4 - 5'7</div>
+        <div class="card" (click)="selectOption('height', '5\'8 - 5\'11')">5'8 - 5'11</div>
+        <div class="card" (click)="selectOption('height', '6\'0 - 6\'3')">6'0 - 6'3</div>
+        <div class="card" (click)="selectOption('height', 'Over 6\'3')">Over 6'3</div>
+      </div>
     </div>
 
     <div *ngIf="currentStep === 7" class="step">

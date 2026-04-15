@@ -27,10 +27,17 @@
         <div *ngFor="let exercise of exercises" class="exercise-card">
           <h3>{{ exercise.name }}</h3>
           <p class="muscle-tag">{{ exercise.category }}</p>
-          <div class="sets-info">
+
+          <div class="sets-info" *ngIf="userProfile.goal !== 'Lose Weight'">
             <span>3 Sets</span>
             <span>10-12 Reps</span>
             <span>60s Rest</span>
+          </div>
+
+          <div class="sets-info" *ngIf="userProfile.goal === 'Lose Weight'">
+            <span>20 Mins</span>
+            <span>Moderate Pace</span>
+            <span>2 Min Rest</span>
           </div>
         </div>
       </div>

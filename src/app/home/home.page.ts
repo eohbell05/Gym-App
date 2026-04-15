@@ -52,4 +52,8 @@ async selectOption(field: string, value: string) {
     });
     this.router.navigate(['/workout']);
   }
+
+  ionViewWillEnter() {
+  this.currentStep = 0;
+}
 }
