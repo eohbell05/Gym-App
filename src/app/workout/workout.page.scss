@@ -104,3 +104,30 @@
   --background: #1a3cff;
   --border-radius: 14px;
 }
+
+.exercise-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    text-transform: capitalize;
+    margin: 0;
+  }
+}
+
+.swap-btn {
+  background: #1a3cff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}

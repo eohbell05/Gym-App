@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonInput } from '@ionic/angular/standalone';
+import { IonContent, IonInput } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserProfileService } from '../services/user-profile.service';
@@ -10,7 +10,7 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonInput, FormsModule, CommonModule],
+  imports: [IonContent, IonInput, FormsModule, CommonModule],
 })
 export class HomePage {
 
